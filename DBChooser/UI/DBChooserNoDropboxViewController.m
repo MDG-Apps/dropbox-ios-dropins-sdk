@@ -10,6 +10,8 @@
 #import "DBCLocalization.h"
 #import "DBCStyledErrorView.h"
 
+#import <StoreKit/StoreKit.h>
+
 static const CGFloat sNoDropboxViewPadding1Portrait = 54;
 static const CGFloat sNoDropboxViewPadding2Portrait = 12;
 static const CGFloat sNoDropboxViewPadding3Portrait = 37;
@@ -65,9 +67,12 @@ static const CGFloat sNoDropboxViewSubtitlePaddingPad = 160;
 
 - (void)dbc_didPressInstall:(id)sender
 {
-    NSString *appStoreURLString = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
-                                  kDBCIPadAppStoreURL : kDBCIPhoneAppStoreURL;
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURLString]];
+    /*NSString *appStoreURLString = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
+                                  kDBCIPadAppStoreURL : kDBCIPhoneAppStoreURL;*/
+    SKStoreProductViewController *controller = [SKStoreProductViewController alloc];
+    [controller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:kDBAppStoreIdentifier} completionBlock:NULL];
+    [self presentViewController:controller animated:TRUE completion:NULL];
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreURLString]];
     [self dbc_finished];
 }
 
