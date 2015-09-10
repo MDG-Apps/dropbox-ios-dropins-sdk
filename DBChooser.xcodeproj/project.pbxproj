@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ED72CDB1BA1E21F00CABCBF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED72CDA1BA1E21F00CABCBF /* StoreKit.framework */; };
 		9B861A5017716C3200CCB299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B861A4F17716C3200CCB299 /* Foundation.framework */; };
 		9B861A5517716C3200CCB299 /* DBChooser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B861A5417716C3200CCB299 /* DBChooser.h */; };
 		9B861A5717716C3200CCB299 /* DBChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B861A5617716C3200CCB299 /* DBChooser.m */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3ED72CDA1BA1E21F00CABCBF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4D1919551B32B7C500E6712C /* DBImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DBImages.xcassets; sourceTree = "<group>"; };
 		9B861A4C17716C3200CCB299 /* libDBChooser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDBChooser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B861A4F17716C3200CCB299 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED72CDB1BA1E21F00CABCBF /* StoreKit.framework in Frameworks */,
 				9B861A5017716C3200CCB299 /* Foundation.framework in Frameworks */,
 				9B861A7F17716DB600CCB299 /* UIKit.framework in Frameworks */,
 			);
@@ -103,6 +106,7 @@
 		9B861A4E17716C3200CCB299 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ED72CDA1BA1E21F00CABCBF /* StoreKit.framework */,
 				9B861A7E17716DB600CCB299 /* UIKit.framework */,
 				9B861A4F17716C3200CCB299 /* Foundation.framework */,
 				9BE7B440177176DC0058055E /* CoreFoundation.framework */,
