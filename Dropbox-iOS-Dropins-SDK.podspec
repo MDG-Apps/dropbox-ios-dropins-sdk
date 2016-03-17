@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name             = 'Dropbox-iOS-Dropins-SDK'
-  spec.version          = '1.2.3'
+  spec.version          = '1.2.4'
   spec.license          = { :type => 'Apache' }
   spec.homepage         = 'https://github.com/MDG-Apps/dropbox-ios-dropins-sdk.git'
   spec.author           = 'Dropbox'
   spec.summary          = 'The Dropbox Chooser SDK for iOS.'
-  spec.source           = { :git => 'https://github.com/MDG-Apps/dropbox-ios-dropins-sdk.git', :tag => 'v1.2.3' }
+  spec.source           = { :git => 'https://github.com/MDG-Apps/dropbox-ios-dropins-sdk.git', :tag => 'v1.2.4' }
   spec.source_files     = "DBChooser/**/*.{h,m}"
   spec.resources        = 'DBChooser.bundle'
   spec.vendored_frameworks = 'DBChooser.framework'

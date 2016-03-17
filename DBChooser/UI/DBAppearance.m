@@ -17,7 +17,7 @@ static CGFloat BackBarButtonCapHeight = 0;
 
 + (void)customizeNavBarForContainer:(Class<UIAppearanceContainer>)cls {
     if (isIOS7()) {
-        [[UINavigationBar appearanceWhenContainedIn:cls, nil] setTintColor:[self dropboxBlue]];
+        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[cls]] setTintColor:[self dropboxBlue]];
         return;
     }
 
@@ -33,50 +33,53 @@ static CGFloat BackBarButtonCapHeight = 0;
     UIImage *blueBackLandscape = [DBAppearance loadImageNamed:@"blue_back_button_landscape" fromBundle:bundle];
     UIImage *blueBackLandscapePressed = [DBAppearance loadImageNamed:@"blue_back_button_landscape_pressed" fromBundle:bundle];
     
-    [[UINavigationBar appearanceWhenContainedIn:cls, nil]
+    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[cls]]
      setBackgroundImage:[header resizableImageWithCapInsets:navInsets]
      forBarMetrics:UIBarMetricsDefault];
     UIEdgeInsets button_insets = UIEdgeInsetsMake(BarButtonCapHeight, BarButtonCapWidth, BarButtonCapHeight, BarButtonCapWidth);
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
       setBackgroundImage:blueButton
      forState:UIControlStateNormal
      barMetrics:UIBarMetricsDefault];
     
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackgroundImage:blueButtonPressed
      forState:UIControlStateHighlighted
      barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackgroundImage:[blueButtonLandscape resizableImageWithCapInsets:button_insets]
      forState:UIControlStateNormal
-     barMetrics:UIBarMetricsLandscapePhone];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+     barMetrics:UIBarMetricsCompact];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackgroundImage:[blueButtonLandscapePressed resizableImageWithCapInsets:button_insets]
      forState:UIControlStateHighlighted
-     barMetrics:UIBarMetricsLandscapePhone];
+     barMetrics:UIBarMetricsCompact];
     
     UIEdgeInsets back_insets = UIEdgeInsetsMake(BackBarButtonCapHeight, BackBarButtonLeftCap, BackBarButtonCapHeight, BackBarButtonRightCap);
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackButtonBackgroundImage:[blueBack resizableImageWithCapInsets:back_insets]
      forState:UIControlStateNormal
      barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackButtonBackgroundImage:[blueBackPressed resizableImageWithCapInsets:back_insets]
      forState:UIControlStateHighlighted
      barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackButtonBackgroundImage:[blueBackLandscape resizableImageWithCapInsets:back_insets]
      forState:UIControlStateNormal
-     barMetrics:UIBarMetricsLandscapePhone];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], cls, nil]
+     barMetrics:UIBarMetricsCompact];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class], cls]]
      setBackButtonBackgroundImage:[blueBackLandscapePressed resizableImageWithCapInsets:back_insets]
      forState:UIControlStateHighlighted
-     barMetrics:UIBarMetricsLandscapePhone];
+     barMetrics:UIBarMetricsCompact];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    [shadow setShadowOffset:CGSizeMake(0, -0.5)];
+    [shadow setShadowColor:[[UIColor blackColor] colorWithAlphaComponent:0.9]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-                               UITextAttributeTextColor : [UIColor whiteColor],
-                         UITextAttributeTextShadowColor : [[UIColor blackColor] colorWithAlphaComponent:0.9],
-                        UITextAttributeTextShadowOffset : [NSValue valueWithCGSize:CGSizeMake(0, -0.5)] }];
+                               NSForegroundColorAttributeName : [UIColor whiteColor],
+                               NSShadowAttributeName : shadow}];
 }
 
 + (UIColor *)dropboxBlue {
